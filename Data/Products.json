@@ -1,3 +1,38 @@
 [
-    
-]
+    {
+      "id": "1",
+      "title": "Producto1",
+      "description": "Descripcion1",
+      "price": 1000,
+      "thumbnail": "Link1",
+      "code": 1,
+      "stock": 13000
+    },
+    {
+      "id": 2,
+      "title": "Producto2",
+      "description": "Descripcion2",
+      "price": 90000,
+      "thumbnail": "Link2",
+      "code": 2,
+      "stock": 15000
+    },
+    {
+      "id": 3,
+      "title": "Producto3",
+      "description": "Descripcion3",
+      "price": 9000,
+      "thumbnail": "Link3",
+      "code": 3,
+      "stock": 19000
+    },
+    {
+      "id": 4,
+      "title": "Producto4",
+      "description": "Descripcion4",
+      "price": 25000,
+      "thumbnail": "Link4",
+      "code": 4,
+      "stock": 500
+    }
+  ]
