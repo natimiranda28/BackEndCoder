@@ -1,11 +1,10 @@
 body {
-	background-color: lightpink;
+	background-color: whitesmoke;
 	padding: 10px;
 }
 
 #list-products {
 	display: flex;
 	align-items: stretch;
-	gap: 20px;
-	background-color: lightgray;
+	gap: 10px;
 }

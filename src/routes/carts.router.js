@@ -1,43 +1,24 @@
-const { Router } = require("express");
-const productManager = require("./utils/ProductManager");
-const cartManager = require("./utils/CartsManager");
-const router = Router();
+const { Router } = require('express')
+const cartsController = require('../controllers/carts.controller')
 
-router.post("/", async (req, res) => {
-  const resp = await cartManager.addCart();
-  res.json({ msg: "Carrito creado con exito", id: resp });
-});
+const router = Router()
 
-router.get("/:cid", async (req, res) => {
-  const cid = req.params.cid;
-  try {
-    const cart = await cartManager.getCart(cid);
-    res.json({
-      msg: "Carrito encontrado",
-      cart,
-    });
-  } catch (error) {
-    res.status(404).json({
-      msg: "No se encuentra el carrito",
-      error: error.message,
-    });
-  }
-});
+// Mongoose
 
-router.post("/:cid/product/:pid", async (req, res) => {
-  const { cid, pid } = req.params;
-  try {
-    const product = await productManager.getProductById(pid);
-    const cart = await cartManager.addProductToCart(cid, product.id);
-    res.json({
-      msg: "Producto agregado exitosamente",
-    });
-  } catch (error) {
-    res.status(404).json({
-      msg: "Error al agregar producto",
-      error: error.message,
-    });
-  }
-});
+// Create cart
+router.post('/', cartsController.createCart)
 
-module.exports = router;
+//Cart By ID
+router.get('/:cid', cartsController.getCart)
+
+//Delete Product from Cart ID
+router.delete('/:cid/product/:pid', cartsController.deleteProduct)
+
+//Update Cart by ID
+router.put('/:cid', cartsController.updateAllProducts)
+
+//Update Product quantity on Cart ID
+router.put('/:cid/product/:pid', cartsController.updateProductQuantity)
+
+
+module.exports = router
